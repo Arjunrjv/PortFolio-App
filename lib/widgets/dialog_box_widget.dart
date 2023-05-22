@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/addskillagain.dart';
+import 'package:portfolioapp/screens/add_skill_again.dart';
 
 class AddLinkDialogBox extends StatefulWidget {
   const AddLinkDialogBox({super.key});
@@ -10,7 +10,7 @@ class AddLinkDialogBox extends StatefulWidget {
 }
 
 class _AddLinkDialogBoxState extends State<AddLinkDialogBox> {
-  void _addLink(String Link) {
+  void _addLink(String link) {
     setState(() {});
     // You can perform any additional operations with the entered skill here
   }
@@ -69,7 +69,7 @@ class _AddLinkDialogBoxState extends State<AddLinkDialogBox> {
               child: Text(
                 'Cancel',
                 style: GoogleFonts.poppins(
-                    color: Color(0xff4C67ED),
+                    color: const Color(0xff4C67ED),
                     fontWeight: FontWeight.w500,
                     fontSize: 12),
               ),
@@ -81,7 +81,7 @@ class _AddLinkDialogBoxState extends State<AddLinkDialogBox> {
               child: Text(
                 'Add',
                 style: GoogleFonts.poppins(
-                    color: Color(0xff4C67ED),
+                    color: const Color(0xff4C67ED),
                     fontWeight: FontWeight.w500,
                     fontSize: 12),
               ),

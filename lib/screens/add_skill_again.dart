@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/portfolio_creation_page1.dart';
 
 class AddSkillAgain extends StatelessWidget {
   const AddSkillAgain({super.key});

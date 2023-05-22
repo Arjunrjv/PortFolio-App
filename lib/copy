@@ -1,121 +1,36 @@
-Container(
-        padding: const EdgeInsets.all(26.0),
-        color: Color(0xffF5F6FC),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'create your portfolio',
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600, color: Colors.white),
-            ),
-            const SizedBox(
-              height: 50.0,
-            ),
-            Container(
-              height: 304.29,
-              width: 340.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/Portfolio-update.jpg'),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 50.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const UserLoginPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF4F5A),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
+SizedBox(
+            height: 130,
+            child: ListView.builder(
+              padding: const EdgeInsets.only(left: 27),
+              scrollDirection: Axis.horizontal,
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                final isFirstItem = index == 0;
+                final containerColor =
+                    isFirstItem ? const Color(0xff2F80ED) : Colors.white;
+                final borderRadius = BorderRadius.circular(20);
+                final strokeWidth = isFirstItem ? 0.0 : 1.0;
+                final boxShadow = [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 5.0,
+                    spreadRadius: 1.0,
+                    offset: const Offset(0, 4),
                   ),
-                  child: Text(
-                    'Login',
-                    style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600, color: Colors.white),
+                ];
+
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10, bottom: 12, top: 5),
+                  child: SizedBox(
+                    height: 120,
+                    width: 230,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: const Color(0xffF5F5F7), width: strokeWidth),
+                        color: containerColor,
+                        borderRadius: borderRadius,
+                        boxShadow: isFirstItem ? [] : boxShadow,
+                      ),
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const UserSignupPage()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF4F5A),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: Text(
-                    'Signup',
-                    style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600, color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-
-
-
-
-
-
-
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),
-      TextFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Text',
-        ),
-      ),

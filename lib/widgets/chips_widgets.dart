@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/widgets/addnewwidget.dart';
+import 'package:portfolioapp/widgets/add_new_widget.dart';
 import '../screens/portfolio_creation_page1.dart';
 
 class ChipsCreationWidget extends StatefulWidget {
@@ -131,7 +131,7 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
             side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
           ),
         ),
-        MyWidget(),
+        const MyWidget(),
       ],
     );
   }

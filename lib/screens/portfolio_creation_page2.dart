@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/screens/view_profile_page.dart';
-import 'package:portfolioapp/widgets/dialogboxwidget.dart';
+import 'package:portfolioapp/widgets/dialog_box_widget.dart';
 import 'portfolio_creation_page1.dart';
 
 class PortfolioCreationPage2 extends StatefulWidget {
@@ -190,7 +190,7 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
               ),
             ),
             const SizedBox(height: 50.0),
-            AddLinkDialogBox(),
+            const AddLinkDialogBox(),
             SizedBox(
               width: double.infinity,
               height: 50.0,
@@ -214,6 +214,9 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
                       'projectlink': PortfolioCreationPage1.projectlink,
                     },
                   );
+
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ViewProfilePage()));
                 },
                 child: Text(
                   "Let's Go",

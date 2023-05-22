@@ -27,8 +27,9 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('sign up'),
+        title: const Text('Sign up'),
         primary: true,
+        elevation: 0,
       ),
       body: Container(
         color: const Color(0xff0E101B),
@@ -153,7 +154,7 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                           builder: (_) => AlertDialog(
                             shape: BeveledRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0)),
-                            backgroundColor: Color(0xff0E101B),
+                            backgroundColor: const Color(0xff0E101B),
                             title: Text(
                               'Invalid email',
                               style: GoogleFonts.inter(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/addskillagain.dart';
+import 'package:portfolioapp/screens/add_skill_again.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -73,7 +73,7 @@ class _MyWidgetState extends State<MyWidget> {
               child: Text(
                 'Cancel',
                 style: GoogleFonts.poppins(
-                    color: Color(0xff4C67ED),
+                    color: const Color(0xff4C67ED),
                     fontWeight: FontWeight.w500,
                     fontSize: 12),
               ),
@@ -85,7 +85,7 @@ class _MyWidgetState extends State<MyWidget> {
               child: Text(
                 'Add',
                 style: GoogleFonts.poppins(
-                    color: Color(0xff4C67ED),
+                    color: const Color(0xff4C67ED),
                     fontWeight: FontWeight.w500,
                     fontSize: 12),
               ),

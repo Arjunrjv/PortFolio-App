@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/screens/portfolio_creation_page2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:portfolioapp/widgets/chipswidgets.dart';
+import 'package:portfolioapp/widgets/chips_widgets.dart';
 
 class PortfolioCreationPage1 extends StatefulWidget {
   static String name = '';
@@ -116,6 +116,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
               ),
               const SizedBox(height: 15.0),
               TextFormField(
+                keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   PortfolioCreationPage1.phoneNum = value;
                 },
