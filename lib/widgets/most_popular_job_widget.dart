@@ -9,7 +9,14 @@ class MostPopularJobWidget extends StatefulWidget {
 }
 
 class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
-  final _jobcount = 6;
+  final jobDomains = [
+    'Mobile App',
+    'UI/UX',
+    'Web Development',
+    'AI',
+    'CyberSecurity',
+    'Blockchain'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Most popular job',
+                'Domains',
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -42,7 +49,7 @@ class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
           child: ListView.builder(
             padding: const EdgeInsets.only(left: 35),
             scrollDirection: Axis.horizontal,
-            itemCount: _jobcount,
+            itemCount: jobDomains.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 25, bottom: 12, top: 5),
@@ -70,10 +77,10 @@ class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
                       elevation: 0,
                     ),
                     child: Text(
-                      'Job$index',
+                      jobDomains.elementAt(index),
                       style: GoogleFonts.poppins(
                           fontSize: 10,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.w300,
                           color: Colors.black),
                     ),
                   ),

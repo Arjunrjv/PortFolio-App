@@ -6,7 +6,7 @@ class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
 
   @override
-  _MyWidgetState createState() => _MyWidgetState();
+  State<MyWidget> createState() => _MyWidgetState();
 }
 
 class _MyWidgetState extends State<MyWidget> {
@@ -25,11 +25,13 @@ class _MyWidgetState extends State<MyWidget> {
       builder: (BuildContext context) {
         String newSkill = '';
         return AlertDialog(
-          backgroundColor: const Color(0xff0E101B),
+          backgroundColor: const Color(0xffFFFFFF),
           title: Text(
             'Add Skill',
             style: GoogleFonts.poppins(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
+                fontSize: 20,
+                color: Color(0xff000000),
+                fontWeight: FontWeight.w500),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -40,8 +42,8 @@ class _MyWidgetState extends State<MyWidget> {
                 cursorColor: Colors.white,
                 style: GoogleFonts.poppins(
                     fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xffFFFFFF)),
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff666666).withOpacity(0.60)),
                 onChanged: (value) {
                   newSkill = value;
                 },
@@ -51,17 +53,17 @@ class _MyWidgetState extends State<MyWidget> {
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
-                      color: const Color(0xff666666)),
+                      color: const Color(0xff666666).withOpacity(0.60)),
                   filled: true,
-                  fillColor: const Color(0xff20222C),
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
                   enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
+                    borderSide: BorderSide(
+                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
+                    borderSide: BorderSide(
+                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
@@ -120,7 +122,8 @@ class _MyWidgetState extends State<MyWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
           ),
-          side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+          side: BorderSide(
+              color: Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
         ),
       ],
     );

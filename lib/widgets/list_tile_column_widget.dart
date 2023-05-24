@@ -1,17 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/screens/job_page.dart';
 
 class TrendingJobsListTile extends StatefulWidget {
-  const TrendingJobsListTile({super.key});
+  const TrendingJobsListTile({super.key, var jobNames});
 
   @override
   State<TrendingJobsListTile> createState() => _TrendingJobsListTileState();
 }
 
 class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
+  final jobNames = [
+    'Software Engineer',
+    'Flutter Developer',
+    'Full Stack Developer',
+    'Software Tester',
+    'Data Analyst',
+    'Cloud Engineer'
+  ];
+
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ShowAboutTheJob()));
+      },
       dense: true,
       visualDensity: const VisualDensity(vertical: -3),
       leading: Transform.translate(
@@ -25,7 +41,7 @@ class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
       title: Transform.translate(
         offset: const Offset(-15, -4),
         child: Text(
-          'Senior Developer',
+          jobNames.elementAt(currentIndex),
           style: GoogleFonts.poppins(
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -44,9 +60,15 @@ class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
       ),
       trailing: Transform.translate(
         offset: const Offset(0, 0),
-        child: const Icon(
-          Icons.more_vert,
-          color: Colors.black,
+        child: IconButton(
+          onPressed: () {
+            // Navigator.of(context).push(
+            //     MaterialPageRoute(builder: (context) => const PortfolioHome()));
+          },
+          icon: const Icon(
+            Icons.more_vert,
+            color: Colors.black,
+          ),
         ),
       ),
     );

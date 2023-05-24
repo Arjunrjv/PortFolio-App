@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/widgets/jobs_foryou_contaoner_widget.dart';
+import 'package:portfolioapp/widgets/jobs_foryou_container_widget.dart';
 import 'package:portfolioapp/widgets/list_tile_column_widget.dart';
 import 'package:portfolioapp/widgets/most_popular_job_widget.dart';
 import 'package:portfolioapp/widgets/search_job_textfield.dart';

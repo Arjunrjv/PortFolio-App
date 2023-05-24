@@ -27,190 +27,193 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff0E101B),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff0E101B),
-        title: Text(
-          'CREATE PROFILE',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        ),
-        elevation: 0,
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding:
-              const EdgeInsets.only(top: 0, bottom: 30, left: 30, right: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Center(
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Color(0xff0E101B),
-                      foregroundImage: AssetImage('assets/images/Avatar.png'),
-                    ),
-                    Positioned(
-                      right: 5,
-                      bottom: 5,
-                      child: Icon(
-                        size: 30,
-                        Icons.add_circle_rounded,
-                        color: Color(0xff4C67ED),
+      backgroundColor: const Color(0xffFFFFFF),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            padding:
+                const EdgeInsets.only(top: 45, bottom: 30, left: 30, right: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Center(
+                  child: Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundColor: Color(0xffFFFFFF),
+                        foregroundImage: AssetImage('assets/images/Avatar.png'),
                       ),
-                    )
-                  ],
+                      Positioned(
+                        right: 5,
+                        bottom: 5,
+                        child: Icon(
+                          size: 30,
+                          Icons.add_circle_rounded,
+                          color: Color(0xff2D2A2A),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10.0, top: 28.0),
-                child: Text(
-                  'Welcome to portFolio',
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0, top: 26.0),
+                  child: Text(
+                    'Welcome to portFolio.',
+                    style: GoogleFonts.poppins(
+                        fontSize: 25,
+                        color: const Color(0xff000000),
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 26.0),
+                  child: Text(
+                    'Create your portfolio and apply for jobs according to your skills',
+                    style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: const Color(0xff8D8D8D),
+                        fontWeight: FontWeight.w300),
+                  ),
+                ),
+                TextFormField(
+                  onChanged: (value) {
+                    PortfolioCreationPage1.name = value;
+                  },
+                  textCapitalization: TextCapitalization.words,
+                  cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
-                      fontSize: 25,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: 'Full name',
+                    hintStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xff666666).withOpacity(0.60)),
+                    filled: true,
+                    fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: Text(
-                  'Create your portfolio and apply for jobs according to your skills',
+                const SizedBox(height: 15.0),
+                TextFormField(
+                  onChanged: (value) {
+                    PortfolioCreationPage1.phoneNum = value;
+                  },
+                  textCapitalization: TextCapitalization.words,
+                  cursorColor: Colors.white,
                   style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: const Color(0xff8D8D8D),
-                      fontWeight: FontWeight.w200),
-                ),
-              ),
-              TextFormField(
-                onChanged: (value) {
-                  PortfolioCreationPage1.name = value;
-                },
-                textCapitalization: TextCapitalization.words,
-                cursorColor: Colors.white,
-                style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xffFFFFFF)),
-                decoration: InputDecoration(
-                  isDense: true,
-                  hintText: 'Full name',
-                  hintStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                      color: const Color(0xff666666)),
-                  filled: true,
-                  fillColor: const Color(0xff20222C),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: 'Phone Number',
+                    hintStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xff666666).withOpacity(0.60)),
+                    filled: true,
+                    fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 15.0),
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                onChanged: (value) {
-                  PortfolioCreationPage1.phoneNum = value;
-                },
-                cursorColor: Colors.white,
-                style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xffFFFFFF)),
-                decoration: InputDecoration(
-                  isDense: true,
-                  hintText: 'Phone Number',
-                  hintStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                      color: const Color(0xff666666)),
-                  filled: true,
-                  fillColor: const Color(0xff20222C),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15.0),
-              TextFormField(
-                onChanged: (value) {
-                  PortfolioCreationPage1.jobName = value;
-                },
-                textCapitalization: TextCapitalization.words,
-                cursorColor: Colors.white,
-                style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xffFFFFFF)),
-                decoration: InputDecoration(
-                  isDense: true,
-                  hintText: 'Job name',
-                  hintStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                      color: const Color(0xff666666)),
-                  filled: true,
-                  fillColor: const Color(0xff20222C),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
-                child: Text(
-                  'Select Skill',
+                const SizedBox(height: 15.0),
+                TextFormField(
+                  onChanged: (value) {
+                    PortfolioCreationPage1.jobName = value;
+                  },
+                  textCapitalization: TextCapitalization.words,
+                  cursorColor: Colors.white,
                   style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: const Color(0xff8D8D8D),
-                      fontWeight: FontWeight.w200),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: 'Job Name',
+                    hintStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xff666666).withOpacity(0.60)),
+                    filled: true,
+                    fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1.5,
+                          color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
                 ),
-              ),
-              const ChipsCreationWidget(),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 34.0, bottom: 12.0),
+                  child: Text(
+                    'Select Skill',
+                    style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: const Color(0xff8D8D8D),
+                        fontWeight: FontWeight.w300),
+                  ),
+                ),
+                const ChipsCreationWidget(),
+              ],
+            ),
           ),
         ),
       ),
-      floatingActionButton: Container(
-        width: 60,
-        height: 50,
-        decoration:
-            BoxDecoration(borderRadius: BorderRadiusDirectional.circular(20)),
-        child: FloatingActionButton(
-          backgroundColor: const Color(0xff4C67ED),
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const PortfolioCreationPage2()));
-          },
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          child: const Icon(
-            Icons.arrow_forward_rounded,
-            size: 32,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: Container(
+          width: 55,
+          height: 55,
+          decoration:
+              BoxDecoration(borderRadius: BorderRadiusDirectional.circular(20)),
+          child: FloatingActionButton(
+            backgroundColor: const Color(0xff4C67ED),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const PortfolioCreationPage2()));
+            },
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Icon(
+              Icons.arrow_forward_rounded,
+              size: 32,
+            ),
           ),
         ),
       ),

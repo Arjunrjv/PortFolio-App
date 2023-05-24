@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/add_skill_again.dart';
 
 class AddLinkDialogBox extends StatefulWidget {
   const AddLinkDialogBox({super.key});
@@ -21,11 +20,13 @@ class _AddLinkDialogBoxState extends State<AddLinkDialogBox> {
       builder: (BuildContext context) {
         String newLink = '';
         return AlertDialog(
-          backgroundColor: const Color(0xff0E101B),
+          backgroundColor: const Color(0xffFFFFFF),
           title: Text(
             'Add Link',
             style: GoogleFonts.poppins(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
+                fontSize: 20,
+                color: Color(0xff000000),
+                fontWeight: FontWeight.w500),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -36,28 +37,28 @@ class _AddLinkDialogBoxState extends State<AddLinkDialogBox> {
                 cursorColor: Colors.white,
                 style: GoogleFonts.poppins(
                     fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xffFFFFFF)),
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff666666).withOpacity(0.60)),
                 onChanged: (value) {
                   newLink = value;
                 },
                 decoration: InputDecoration(
-                  hintText: 'Enter Link',
+                  hintText: 'Enter skill',
                   isDense: true,
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
-                      color: const Color(0xff666666)),
+                      color: const Color(0xff666666).withOpacity(0.60)),
                   filled: true,
-                  fillColor: const Color(0xff20222C),
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
                   enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
+                    borderSide: BorderSide(
+                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(width: 2, color: Color(0xff343434)),
+                    borderSide: BorderSide(
+                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),

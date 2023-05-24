@@ -1,4 +1,27 @@
-body: ListView(
+import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class ShowAboutTheJob extends StatefulWidget {
+  const ShowAboutTheJob({super.key});
+
+  @override
+  State<ShowAboutTheJob> createState() => _ShowAboutTheJobState();
+}
+
+class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
+  final jobType = [
+    'Full-Time',
+    'Internship',
+    'Part-Time',
+    'Temporary',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xffF9F9F9),
+      body: ListView(
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -18,14 +41,18 @@ body: ListView(
             ),
           ),
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
-                BoxShadow(color: Colors.black, blurRadius: 10, spreadRadius: 1)
+                BoxShadow(
+                    color: const Color(0xffEFEFEF).withOpacity(0.05),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                    offset: const Offset(0, -4))
               ],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
               ),
             ),
             child: Center(
@@ -218,3 +245,163 @@ body: ListView(
           ),
         ],
       ),
+      floatingActionButton: SizedBox(
+        width: 250,
+        child: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
+                ),
+              ),
+              context: context,
+              builder: (context) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 40),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 37, bottom: 25),
+                        child: SizedBox(
+                          width: 100,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                left: 30,
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0xff3BAE31),
+                                  radius: 30,
+                                  child: FlutterLogo(
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0xff333333),
+                                  radius: 30,
+                                  child: FlutterLogo(
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Text(
+                        'Software Engineer',
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xff333333),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8, bottom: 41),
+                        child: Text(
+                          'Marketfeed',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xffBDBDBD),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Resume added from your profile   '),
+                            Icon(
+                              Icons.check_circle,
+                              color: Color(0xff3BAE31),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Text('or'),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, bottom: 40),
+                        child: DottedBorder(
+                          color: const Color(0xffEAEAEA),
+                          strokeWidth: 1.5,
+                          dashPattern: const [12, 12],
+                          radius: const Radius.circular(10),
+                          borderType: BorderType.RRect,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: double.infinity,
+                            height: 65,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffEAEAEA).withOpacity(0.80),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.upload_file_rounded,
+                                  color: Color(0xff666666),
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  'Upload New Resume',
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15.0,
+                                    color: const Color(0xff666666)
+                                        .withOpacity(0.60),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50.0,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff4C67ED),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Apply Now',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600, fontSize: 15.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+          backgroundColor: const Color(0xff4C67ED),
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text(
+            'One Click Apply',
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600, fontSize: 19.0),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}

@@ -25,7 +25,7 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
           padding: const EdgeInsets.only(right: 10),
           child: ActionChip(
             avatar: Icon(chipicon1 ? Icons.check_box : Icons.check,
-                color: const Color(0xff4C67ED)),
+                color: const Color(0xff515151)),
             onPressed: () {
               setState(() {
                 PortfolioCreationPage1.selectedchiplabel1.add('Flutter');
@@ -35,19 +35,20 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
             label: Text(
               'Flutter',
               style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: const Color(0xff515151).withOpacity(0.65),
                   fontWeight: FontWeight.w500,
                   fontSize: 12),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
-            backgroundColor: const Color(0xff20222C),
-            side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+            backgroundColor: const Color(0xffEEEEEE),
+            side: BorderSide(
+                color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
           ),
         ),
         ActionChip(
           avatar: Icon(chipicon2 ? Icons.check_box : Icons.check,
-              color: const Color(0xff4C67ED)),
+              color: const Color(0xff515151)),
           onPressed: () {
             setState(() {
               PortfolioCreationPage1.selectedchiplabel1.add('JavaScript');
@@ -57,18 +58,21 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
           label: Text(
             'JavaScript',
             style: GoogleFonts.poppins(
-                color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12),
+                color: const Color(0xff515151).withOpacity(0.65),
+                fontWeight: FontWeight.w500,
+                fontSize: 12),
           ),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-          backgroundColor: const Color(0xff20222C),
-          side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+          backgroundColor: const Color(0xffEEEEEE),
+          side: BorderSide(
+              color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: ActionChip(
             avatar: Icon(chipicon3 ? Icons.check_box : Icons.check,
-                color: const Color(0xff4C67ED)),
+                color: const Color(0xff515151)),
             onPressed: () {
               setState(() {
                 PortfolioCreationPage1.selectedchiplabel1.add('Python');
@@ -78,19 +82,20 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
             label: Text(
               'Python',
               style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: const Color(0xff515151).withOpacity(0.65),
                   fontWeight: FontWeight.w500,
                   fontSize: 12),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
-            backgroundColor: const Color(0xff20222C),
-            side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+            backgroundColor: const Color(0xffEEEEEE),
+            side: BorderSide(
+                color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
           ),
         ),
         ActionChip(
           avatar: Icon(chipicon4 ? Icons.check_box : Icons.check,
-              color: const Color(0xff4C67ED)),
+              color: const Color(0xff515151)),
           onPressed: () {
             setState(() {
               PortfolioCreationPage1.selectedchiplabel1.add('Golang');
@@ -100,18 +105,21 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
           label: Text(
             'Golang',
             style: GoogleFonts.poppins(
-                color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12),
+                color: const Color(0xff515151).withOpacity(0.65),
+                fontWeight: FontWeight.w500,
+                fontSize: 12),
           ),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-          backgroundColor: const Color(0xff20222C),
-          side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+          backgroundColor: const Color(0xffEEEEEE),
+          side: BorderSide(
+              color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: ActionChip(
             avatar: Icon(chipicon5 ? Icons.check_box : Icons.check,
-                color: const Color(0xff4C67ED)),
+                color: const Color(0xff515151)),
             onPressed: () {
               setState(() {
                 PortfolioCreationPage1.selectedchiplabel1.add('React');
@@ -121,14 +129,15 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
             label: Text(
               'React',
               style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: const Color(0xff515151).withOpacity(0.65),
                   fontWeight: FontWeight.w500,
                   fontSize: 12),
             ),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
-            backgroundColor: const Color(0xff20222C),
-            side: const BorderSide(color: Color(0xffEDEBEC), width: 0),
+            backgroundColor: const Color(0xffEEEEEE),
+            side: BorderSide(
+                color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
           ),
         ),
         const MyWidget(),

@@ -7,10 +7,10 @@ class AddSkillAgain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff0E101B),
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xff0E101B),
+        backgroundColor: const Color(0xffFFFFFF),
         leading: GestureDetector(
           child: const Icon(Icons.close),
           onTap: () {
@@ -24,7 +24,7 @@ class AddSkillAgain extends StatelessWidget {
           children: [
             const Icon(
               Icons.task_alt,
-              color: Color(0xff4C67ED),
+              color: Color(0xff2D2A2A),
               size: 60,
             ),
             Center(
@@ -32,7 +32,7 @@ class AddSkillAgain extends StatelessWidget {
                 'Your skill has been added',
                 style: GoogleFonts.poppins(
                     fontSize: 25,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w500),
               ),
             ),
@@ -48,7 +48,7 @@ class AddSkillAgain extends StatelessWidget {
                         Text(
                           'Add another skill',
                           style: GoogleFonts.poppins(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
@@ -57,7 +57,7 @@ class AddSkillAgain extends StatelessWidget {
                         ),
                         const Icon(
                           Icons.add_circle_outline,
-                          color: Color(0xff4C67ED),
+                          color: Color(0xff2D2A2A),
                           size: 25,
                         )
                       ],
@@ -94,7 +94,7 @@ class AddSkillAgain extends StatelessWidget {
                       child: Text(
                         'No thanks',
                         style: GoogleFonts.poppins(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
                       ),
