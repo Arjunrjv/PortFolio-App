@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/screens/explore_page.dart';
 
 class MostPopularJobWidget extends StatefulWidget {
   const MostPopularJobWidget({super.key});
@@ -23,7 +24,7 @@ class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 40, left: 35, bottom: 20),
+          padding: const EdgeInsets.only(right: 25, left: 35, bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -34,12 +35,18 @@ class _MostPopularJobWidgetState extends State<MostPopularJobWidget> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              Text(
-                'Explore',
-                style: GoogleFonts.poppins(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w300,
-                    color: const Color(0xff2F80ED)),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ExplorePage()));
+                },
+                child: Text(
+                  'Explore',
+                  style: GoogleFonts.poppins(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      color: const Color(0xff2F80ED)),
+                ),
               ),
             ],
           ),

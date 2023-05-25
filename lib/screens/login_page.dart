@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/forgetpassword/forgot_password.dart';
 import 'package:portfolioapp/screens/sign_up_page.dart';
 import 'package:portfolioapp/screens/portfolio_creation_page1.dart';
 
-class PortfolioHome extends StatefulWidget {
-  const PortfolioHome({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<PortfolioHome> createState() => _PortfolioHomeState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _PortfolioHomeState extends State<PortfolioHome> {
+class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   String userEmail = '';
   String userPassword = '';
@@ -94,7 +95,10 @@ class _PortfolioHomeState extends State<PortfolioHome> {
                           color: const Color(0xffA2A9C5),
                         ),
                         suffixIcon: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            ForgotPassWordScreen.ForgotPasswordBottomSheet(
+                                context);
+                          },
                           child: Text(
                             'FORGOT?',
                             style: GoogleFonts.inter(

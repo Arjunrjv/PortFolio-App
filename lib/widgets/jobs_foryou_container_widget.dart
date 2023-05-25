@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/screens/explore_page.dart';
 import 'package:portfolioapp/screens/job_page.dart';
 
 class JobsForYouContainerWidget extends StatefulWidget {
@@ -55,7 +56,7 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
       children: [
         Padding(
           padding:
-              const EdgeInsets.only(left: 35, right: 40, top: 20, bottom: 20),
+              const EdgeInsets.only(left: 35, right: 25, top: 15, bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -66,12 +67,18 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              Text(
-                'Explore',
-                style: GoogleFonts.poppins(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w300,
-                    color: const Color(0xff2F80ED)),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ExplorePage()));
+                },
+                child: Text(
+                  'Explore',
+                  style: GoogleFonts.poppins(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      color: const Color(0xff2F80ED)),
+                ),
               ),
             ],
           ),

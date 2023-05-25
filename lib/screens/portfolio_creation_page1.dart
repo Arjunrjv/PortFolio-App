@@ -83,15 +83,15 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                   textCapitalization: TextCapitalization.words,
                   cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: const Color(0xff666666).withOpacity(0.60)),
                   decoration: InputDecoration(
                     isDense: true,
                     hintText: 'Full name',
                     hintStyle: GoogleFonts.poppins(
-                        fontSize: 18,
                         fontWeight: FontWeight.w400,
+                        fontSize: 18,
                         color: const Color(0xff666666).withOpacity(0.60)),
                     filled: true,
                     fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
@@ -117,7 +117,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                   textCapitalization: TextCapitalization.words,
                   cursorColor: Colors.white,
                   style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: const Color(0xff666666).withOpacity(0.60)),
                   decoration: InputDecoration(
@@ -151,7 +151,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                   textCapitalization: TextCapitalization.words,
                   cursorColor: Colors.white,
                   style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       color: const Color(0xff666666).withOpacity(0.60)),
                   decoration: InputDecoration(

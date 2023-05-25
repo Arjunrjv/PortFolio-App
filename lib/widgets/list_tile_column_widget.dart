@@ -41,7 +41,7 @@ class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
       title: Transform.translate(
         offset: const Offset(-15, -4),
         child: Text(
-          jobNames.elementAt(currentIndex),
+          ('Software Engineer'),
           style: GoogleFonts.poppins(
             fontSize: 12,
             fontWeight: FontWeight.w400,
