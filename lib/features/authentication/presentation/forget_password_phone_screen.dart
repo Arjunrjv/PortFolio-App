@@ -1,26 +1,9 @@
-import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/forgetpassword/get_otp_screen.dart';
+import 'package:portfolioapp/features/authentication/presentation/get_otp_screen.dart';
 
-class ForgetPasswordMailScreen extends StatefulWidget {
-  const ForgetPasswordMailScreen({super.key});
-
-  @override
-  State<ForgetPasswordMailScreen> createState() =>
-      _ForgetPasswordMailScreenState();
-}
-
-class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
-  final emailController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-
-    super.dispose();
-  }
+class ForgetPasswordPhoneScreen extends StatelessWidget {
+  const ForgetPasswordPhoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +22,7 @@ class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
               ),
               Text(
                 textAlign: TextAlign.center,
-                'Enter your E-mail to get link to reset your password.',
+                'Enter your phone number to get the OTP to reset your password.',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -49,13 +32,8 @@ class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 30, bottom: 30),
                 child: TextFormField(
-                  controller: emailController,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (email) {
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Enter a valid email'
-                        : null;
-                  },
+                  onChanged: (value) {},
+                  textCapitalization: TextCapitalization.words,
                   cursorColor: Colors.white,
                   style: GoogleFonts.poppins(
                       fontSize: 14,
@@ -63,7 +41,7 @@ class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
                       color: const Color(0xff666666).withOpacity(0.60)),
                   decoration: InputDecoration(
                     isDense: true,
-                    hintText: 'E-mail',
+                    hintText: 'Phone number',
                     hintStyle: GoogleFonts.poppins(
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
@@ -98,11 +76,9 @@ class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const OTPScreen()));
-
-                    resetPassword();
                   },
                   child: Text(
-                    'Get Link',
+                    'Get OTP',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600, fontSize: 18),
                   ),
@@ -113,15 +89,5 @@ class _ForgetPasswordMailScreenState extends State<ForgetPasswordMailScreen> {
         ),
       ),
     );
-  }
-
-  Future resetPassword() async {
-    try {
-      await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: emailController.text.trim());
-      const SnackBar(content: Text('Password reset email sent'));
-    } catch (e) {
-      print(e);
-    }
   }
 }

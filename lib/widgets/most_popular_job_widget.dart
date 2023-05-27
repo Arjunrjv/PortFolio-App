@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/explore_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/explore_page.dart';
 
 class MostPopularJobWidget extends StatefulWidget {
   const MostPopularJobWidget({super.key});

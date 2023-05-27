@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/add_skill_again.dart';
+import 'package:portfolioapp/features/profile/presentation/add_skill_again.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/job_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/job_page.dart';
 
 class TrendingJobsListTile extends StatefulWidget {
   const TrendingJobsListTile({super.key, var jobNames});

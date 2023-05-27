@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/explore_page.dart';
-import 'package:portfolioapp/screens/job_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/explore_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/job_page.dart';
 
 class JobsForYouContainerWidget extends StatefulWidget {
   const JobsForYouContainerWidget({super.key});

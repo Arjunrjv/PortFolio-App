@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/view_profile_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/home_page.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({Key? key}) : super(key: key);
@@ -91,7 +91,7 @@ class OTPScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ViewProfilePage()));
+                          builder: (context) => const HomePage()));
                     },
                     child: Text(
                       'Verify and Sign In',

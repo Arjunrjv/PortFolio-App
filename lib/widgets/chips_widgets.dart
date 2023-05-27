@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/widgets/add_new_widget.dart';
-import '../screens/portfolio_creation_page1.dart';
+import '../features/profile/presentation/portfolio_creation_page1.dart';
 
 class ChipsCreationWidget extends StatefulWidget {
   const ChipsCreationWidget({super.key});

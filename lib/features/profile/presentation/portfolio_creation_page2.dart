@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/view_profile_page.dart';
+import 'package:portfolioapp/features/profile/presentation/profile_page.dart';
+import 'package:portfolioapp/features/jobs/presentation/home_page.dart';
 import 'package:portfolioapp/widgets/dialog_box_widget.dart';
 import 'portfolio_creation_page1.dart';
 
@@ -163,7 +164,6 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
                   onChanged: (value) {
                     PortfolioCreationPage1.projectlink = value;
                   },
-                  textCapitalization: TextCapitalization.words,
                   cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
                       fontSize: 14,
@@ -220,7 +220,7 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
                       );
 
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ViewProfilePage()));
+                          builder: (context) => ProfilePage()));
                     },
                     child: Text(
                       "Let's Go",

@@ -43,6 +43,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   flutter_otp_text_field: ^1.1.1
   email_validator: ^2.1.17
+  google_sign_in: ^5.4.4
 
 dev_dependencies:
   flutter_test:

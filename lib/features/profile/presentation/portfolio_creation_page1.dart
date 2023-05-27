@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/portfolio_creation_page2.dart';
+import 'package:portfolioapp/features/profile/presentation/portfolio_creation_page2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:portfolioapp/widgets/chips_widgets.dart';
 
@@ -23,6 +23,10 @@ class PortfolioCreationPage1 extends StatefulWidget {
 
 class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
   final _firestore = FirebaseFirestore.instance;
+
+  // final nameController = TextEditingController();
+  // final phnoController = TextEditingController();
+  // final jobNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +84,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                   onChanged: (value) {
                     PortfolioCreationPage1.name = value;
                   },
+                  // controller: nameController,
                   textCapitalization: TextCapitalization.words,
                   cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
@@ -95,6 +100,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                         color: const Color(0xff666666).withOpacity(0.60)),
                     filled: true,
                     fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                    // errorText: showError ? 'Please enter your name' : null,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: 1.5,
@@ -108,6 +114,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
+                  // validator: validateName,
                 ),
                 const SizedBox(height: 15.0),
                 TextFormField(
@@ -115,7 +122,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                     PortfolioCreationPage1.phoneNum = value;
                   },
                   textCapitalization: TextCapitalization.words,
-                  cursorColor: Colors.white,
+                  cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
@@ -149,7 +156,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                     PortfolioCreationPage1.jobName = value;
                   },
                   textCapitalization: TextCapitalization.words,
-                  cursorColor: Colors.white,
+                  cursorColor: const Color(0xff666666).withOpacity(0.60),
                   style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,

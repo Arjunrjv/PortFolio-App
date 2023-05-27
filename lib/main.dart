@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'screens/login_page.dart';
+import 'package:portfolioapp/features/authentication/presentation/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color(0xff0E101B),
         ),
       ),
-      home: const LoginScreen(),
+      home: const WelcomScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,45 +1,38 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/screens/page_after_signup.dart';
+import 'package:portfolioapp/features/profile/presentation/portfolio_creation_page1.dart';
 
-class AccountCreationPage extends StatefulWidget {
-  const AccountCreationPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<AccountCreationPage> createState() => _AccountCreationPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _AccountCreationPageState extends State<AccountCreationPage> {
-  // final collegeDomain = 'college.ac.in';
+class _SignUpPageState extends State<SignUpPage> {
   final _auth = FirebaseAuth.instance;
   String userEmail = '';
   String userPassword = '';
 
   bool _passwordVisible = false;
 
-  // bool isValidEmail(String userEmail) {
-  //   final emailDomain = userEmail.split('@').last;
-  //   return emailDomain == collegeDomain;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 100),
         color: const Color(0xffFFFFFF),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const FlutterLogo(size: 50),
+            Image.asset('assets/images/Mobile login-bro (1).png'),
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0, top: 30.0),
               child: TextFormField(
                 onChanged: (value) {
                   userEmail = value;
                 },
-                textCapitalization: TextCapitalization.words,
                 cursorColor: const Color(0xff666666).withOpacity(0.60),
                 style: GoogleFonts.poppins(
                     fontSize: 18,
@@ -78,13 +71,10 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                 },
                 cursorColor: const Color(0xff666666).withOpacity(0.60),
                 style: GoogleFonts.poppins(
-                    fontSize: 14,
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff666666).withOpacity(0.60)),
                 decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
-                  contentPadding: const EdgeInsets.only(top: 15.0, left: 15.0),
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
@@ -95,16 +85,18 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                       _passwordVisible
                           ? Icons.visibility_off
                           : Icons.visibility,
-                      color: Color(0xff686970),
+                      color: const Color(0xff686970),
                     ),
                   ),
                   suffixIconColor: const Color(0xffA2A9C5),
-                  labelText: 'PASSWORD',
-                  labelStyle: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: const Color(0xff686970),
-                  ),
+                  isDense: true,
+                  hintText: 'Password',
+                  hintStyle: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  filled: true,
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         width: 1.5,
@@ -134,7 +126,7 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                   ),
                   child: Text(
                     'Sign up with email',
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w700, fontSize: 16.0),
                   ),
                   onPressed: () async {
@@ -148,42 +140,7 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                       print(e);
                     }
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const PageAfterSignup()));
-                    //    else {
-                    //     // Show an error message to the user
-                    //     showDialog(
-                    //       context: context,
-                    //       builder: (_) => AlertDialog(
-                    //         shape: BeveledRectangleBorder(
-                    //             borderRadius: BorderRadius.circular(10.0)),
-                    //         backgroundColor: const Color(0xff0E101B),
-                    //         title: Text(
-                    //           'Invalid email',
-                    //           style: GoogleFonts.inter(
-                    //               fontWeight: FontWeight.w600,
-                    //               color: Colors.white),
-                    //         ),
-                    //         content: Text(
-                    //           'Please enter a valid email address ending with @$collegeDomain.',
-                    //           style: GoogleFonts.inter(
-                    //               fontWeight: FontWeight.w600,
-                    //               color: Colors.white),
-                    //         ),
-                    //         actions: [
-                    //           TextButton(
-                    //             child: Text(
-                    //               'OK',
-                    //               style: GoogleFonts.inter(
-                    //                   fontWeight: FontWeight.w600,
-                    //                   color: Colors.red),
-                    //             ),
-                    //             onPressed: () => Navigator.pop(context),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     );
-                    //   }
-                    // },
+                        builder: (context) => const PortfolioCreationPage1()));
                   },
                 ),
               ),

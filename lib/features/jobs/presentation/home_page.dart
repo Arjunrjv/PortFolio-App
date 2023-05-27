@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/widgets/bottom_navbar.dart';
 import 'package:portfolioapp/widgets/jobs_foryou_container_widget.dart';
 import 'package:portfolioapp/widgets/list_tile_column_widget.dart';
 import 'package:portfolioapp/widgets/most_popular_job_widget.dart';
 import 'package:portfolioapp/widgets/search_job_textfield.dart';
 
-class ViewProfilePage extends StatefulWidget {
-  const ViewProfilePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<ViewProfilePage> createState() => _ViewProfilePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _ViewProfilePageState extends State<ViewProfilePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +78,12 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
             ),
           )
         ],
+      ),
+      bottomNavigationBar: const SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: BottomNavigationBarExample(),
+        ),
       ),
     );
   }

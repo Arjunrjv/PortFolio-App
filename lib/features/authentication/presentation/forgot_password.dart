@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolioapp/forgetpassword/forget_password_mail_screen.dart';
-import 'package:portfolioapp/forgetpassword/forget_password_phone_screen.dart';
+import 'package:portfolioapp/features/authentication/presentation/forget_password_mail_screen.dart';
+import 'package:portfolioapp/features/authentication/presentation/forget_password_phone_screen.dart';
 
 class ForgotPassWordScreen {
   static Future<dynamic> ForgotPasswordBottomSheet(BuildContext context) {
