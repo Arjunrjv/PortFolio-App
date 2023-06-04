@@ -30,7 +30,7 @@ class _MyWidgetState extends State<MyWidget> {
             'Add Skill',
             style: GoogleFonts.poppins(
                 fontSize: 20,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
                 fontWeight: FontWeight.w500),
           ),
           content: Column(
@@ -58,12 +58,14 @@ class _MyWidgetState extends State<MyWidget> {
                   fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
+                        width: 1.5,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        width: 1.5, color: Color(0xffEAEAEA).withOpacity(0.80)),
+                        width: 1.5,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
@@ -123,7 +125,7 @@ class _MyWidgetState extends State<MyWidget> {
             borderRadius: BorderRadius.circular(5.0),
           ),
           side: BorderSide(
-              color: Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
+              color: const Color(0xffEDEBEC).withOpacity(0.17), width: 0.9),
         ),
       ],
     );

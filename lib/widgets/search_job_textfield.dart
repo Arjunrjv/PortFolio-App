@@ -13,7 +13,7 @@ class _SearchJobTextFieldWidgetState extends State<SearchJobTextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 40, bottom: 35, left: 30),
+      padding: const EdgeInsets.only(right: 40, bottom: 10, left: 30),
       child: TextFormField(
         textCapitalization: TextCapitalization.words,
         cursorColor: Colors.black,

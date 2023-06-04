@@ -13,30 +13,27 @@ class JobsForYouContainerWidget extends StatefulWidget {
 
 class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
   final yourJobNames = [
-    'Software Engineer',
+    'UI/UX Designer',
+    'Video Editor',
+    'Backend Developer',
+    'Backend Developer',
     'Flutter Developer',
-    'Full Stack Developer',
-    'Software Tester',
-    'Data Analyst',
-    'Cloud Engineer'
   ];
 
   final placeNames = [
+    'Pune',
     'Banglore',
-    'Delhi',
-    'Kochi',
     'Mumbai',
+    'Delhi',
     'Banglore',
-    'Kochi'
   ];
 
   final jobType = [
-    'Full-Time',
     'Internship',
-    'Part-Time',
-    'Temporary',
-    'Full-Time',
-    'Internship'
+    'Internship',
+    'Internship',
+    'Internship',
+    'Internship',
   ];
 
   final jobRemoteOrOnfield = [
@@ -48,7 +45,30 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
     'Hybrid'
   ];
 
-  final cashPerMonth = ['₹1200', '₹5000', '₹8000', '₹1800', '₹2000', '₹1000'];
+  final cashPerMonth = [
+    '₹10000',
+    '₹15000',
+    '₹12000',
+    '₹1800',
+    '₹10000',
+    '₹16000'
+  ];
+
+  final jobID = [
+    '6VLg89X9NAIP4Dschp1k',
+    'ER5acxHizSbkJNdn1Rzh',
+    'MHSLlr7DNegOf5hpUESb',
+    'XxbBD0rVDmngsUt7ARjM',
+    'zGGGbd3dsCmCxzvry04K'
+  ];
+
+  final imageID = [
+    'https://internshala.com/cached_uploads/logo%2F64620cc950e9b1684147401.png',
+    'https://internshala.com/cached_uploads/logo%2F5e2fdd55c1be61580195157.jpg',
+    'https://internshala.com/cached_uploads/logo%2F646f1f7a34aea1685004154.png',
+    'https://internshala.com/cached_uploads/logo%2F5e36e47ef04611580655742.png',
+    'https://internshala.com/cached_uploads/logo%2F646c9ce2ba1191684839650.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +76,7 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
       children: [
         Padding(
           padding:
-              const EdgeInsets.only(left: 35, right: 25, top: 15, bottom: 20),
+              const EdgeInsets.only(left: 35, right: 25, top: 20, bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -67,19 +87,6 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ExplorePage()));
-                },
-                child: Text(
-                  'Explore',
-                  style: GoogleFonts.poppins(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300,
-                      color: const Color(0xff2F80ED)),
-                ),
-              ),
             ],
           ),
         ),
@@ -88,7 +95,7 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
           child: ListView.builder(
             padding: const EdgeInsets.only(left: 27),
             scrollDirection: Axis.horizontal,
-            itemCount: yourJobNames.length,
+            itemCount: jobID.length,
             itemBuilder: (context, index) {
               final isFirstItem = index == 0;
               final containerColor =
@@ -125,7 +132,10 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
                   child: InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ShowAboutTheJob()));
+                          builder: (context) => ShowAboutTheJob(
+                                jobID: jobID[index],
+                                imageID: imageID[index],
+                              )));
                     },
                     child: Container(
                       padding:
@@ -140,10 +150,10 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
                         children: [
                           Row(
                             children: [
-                              const CircleAvatar(
+                              CircleAvatar(
                                 radius: 16,
                                 backgroundColor: Colors.white,
-                                child: FlutterLogo(size: 20),
+                                child: Image.network(imageID[index]),
                               ),
                               const SizedBox(width: 8),
                               Expanded(
@@ -201,7 +211,7 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 8, right: 46),
+                                      const EdgeInsets.only(left: 8, right: 40),
                                   child: SizedBox(
                                     height: 18,
                                     width: 45,

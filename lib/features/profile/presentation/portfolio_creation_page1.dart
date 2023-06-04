@@ -12,6 +12,7 @@ class PortfolioCreationPage1 extends StatefulWidget {
   static String experience = '';
   static String fieldofinterest = '';
   static String projectlink = '';
+  static String linkedinlink = '';
 
   static List<String> selectedchiplabel1 = [];
 
@@ -23,10 +24,6 @@ class PortfolioCreationPage1 extends StatefulWidget {
 
 class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
   final _firestore = FirebaseFirestore.instance;
-
-  // final nameController = TextEditingController();
-  // final phnoController = TextEditingController();
-  // final jobNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +70,7 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 26.0),
                   child: Text(
-                    'Create your portfolio and apply for jobs according to your skills',
+                    'Create your portfolio and apply for internships according to your skills',
                     style: GoogleFonts.poppins(
                         fontSize: 15,
                         color: const Color(0xff8D8D8D),

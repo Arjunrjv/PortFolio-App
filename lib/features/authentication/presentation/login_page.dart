@@ -2,9 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/features/authentication/presentation/forgot_password.dart';
-import 'package:portfolioapp/features/authentication/presentation/sign_up_page.dart';
-import 'package:portfolioapp/features/profile/presentation/portfolio_creation_page1.dart';
 import 'package:portfolioapp/features/jobs/presentation/home_page.dart';
+import 'package:portfolioapp/features/profile/presentation/portfolio_creation_page1.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,6 +28,12 @@ class _LoginScreenState extends State<LoginScreen> {
       child: ListView(
         children: [
           Image.asset('assets/images/Mobile login-rafiki.png'),
+          Text(
+            textAlign: TextAlign.center,
+            'LOGIN',
+            style:
+                GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w600),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Container(
@@ -121,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (userEmail.isEmpty || userPassword.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        backgroundColor: Color(0xff0E101B),
+                        backgroundColor: const Color(0xff0E101B),
                         content: Text(
                           "Fields can't be empty.",
                           style: GoogleFonts.poppins(
@@ -145,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          backgroundColor: Color(0xff0E101B),
+                          backgroundColor: const Color(0xff0E101B),
                           content: Text(
                             "E-mail or password does not match",
                             style: GoogleFonts.poppins(

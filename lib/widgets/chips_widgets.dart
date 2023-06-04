@@ -20,6 +20,7 @@ class _ChipsCreationWidgetState extends State<ChipsCreationWidget> {
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      direction: Axis.horizontal,
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 10),
