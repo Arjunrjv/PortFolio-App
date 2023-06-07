@@ -120,10 +120,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  Future<String?> getDocumentID(String userID) {
-    // Implement your logic to retrieve the document ID based on the userID
-    // Return the document ID or null if not found
-    return Future.delayed(const Duration(seconds: 2), () => 'YOUR_DOCUMENT_ID');
-  }
 }

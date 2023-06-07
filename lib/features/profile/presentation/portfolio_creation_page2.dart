@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/features/jobs/presentation/home_page.dart';
@@ -14,7 +15,42 @@ class PortfolioCreationPage2 extends StatefulWidget {
 class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
   final _firestore = FirebaseFirestore.instance;
 
+  late final TextEditingController _experiencecontroller1;
+  late final TextEditingController _experiencecontroller2;
+  late final TextEditingController _experiencecontroller3;
+
+  late final TextEditingController _educationcontroller1;
+  late final TextEditingController _educationcontroller2;
+  late final TextEditingController _educationcontroller3;
+
   late String documentID;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _experiencecontroller1 = TextEditingController();
+    _experiencecontroller2 = TextEditingController();
+    _experiencecontroller3 = TextEditingController();
+
+    _educationcontroller1 = TextEditingController();
+    _educationcontroller2 = TextEditingController();
+    _educationcontroller3 = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _experiencecontroller1.dispose();
+    _experiencecontroller2.dispose();
+    _experiencecontroller3.dispose();
+
+    _educationcontroller1.dispose();
+    _educationcontroller2.dispose();
+    _educationcontroller3.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +76,17 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Full Name',
+                          PortfolioCreationPage1.name,
                           style: GoogleFonts.poppins(
                               fontSize: 25,
                               fontWeight: FontWeight.w500,
                               color: Colors.black),
                         ),
                         Text(
-                          'Job Role',
+                          PortfolioCreationPage1.jobName,
                           style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300,
                               color: Colors.black),
                         ),
                       ],
@@ -60,19 +96,16 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
               ),
               const SizedBox(height: 15.0),
               TextFormField(
-                onChanged: (value) {
-                  PortfolioCreationPage1.education = value;
-                },
+                controller: _educationcontroller1,
                 textCapitalization: TextCapitalization.sentences,
                 cursorColor: const Color(0xff666666).withOpacity(0.60),
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.normal,
                     color: const Color(0xff666666).withOpacity(0.60)),
-                maxLines: 4,
                 decoration: InputDecoration(
                   isDense: true,
-                  hintText: 'Education',
+                  hintText: 'Education1',
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
@@ -95,19 +128,144 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
               ),
               const SizedBox(height: 15.0),
               TextFormField(
-                onChanged: (value) {
-                  PortfolioCreationPage1.experience = value;
-                },
+                controller: _educationcontroller2,
+                textCapitalization: TextCapitalization.sentences,
+                cursorColor: const Color(0xff666666).withOpacity(0.60),
+                style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: const Color(0xff666666).withOpacity(0.60)),
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: 'Education2',
+                  hintStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  filled: true,
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+              TextFormField(
+                controller: _educationcontroller3,
+                textCapitalization: TextCapitalization.sentences,
+                cursorColor: const Color(0xff666666).withOpacity(0.60),
+                style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: const Color(0xff666666).withOpacity(0.60)),
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: 'Education3',
+                  hintStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  filled: true,
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+              TextFormField(
+                controller: _experiencecontroller1,
                 textCapitalization: TextCapitalization.sentences,
                 cursorColor: const Color(0xff666666).withOpacity(0.60),
                 style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: const Color(0xff666666).withOpacity(0.60)),
-                maxLines: 4,
                 decoration: InputDecoration(
                   isDense: true,
-                  hintText: 'Experience',
+                  hintText: 'Experience1',
+                  hintStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  filled: true,
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+              TextFormField(
+                controller: _experiencecontroller2,
+                textCapitalization: TextCapitalization.sentences,
+                cursorColor: const Color(0xff666666).withOpacity(0.60),
+                style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff666666).withOpacity(0.60)),
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: 'Experience2',
+                  hintStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                      color: const Color(0xff666666).withOpacity(0.60)),
+                  filled: true,
+                  fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2,
+                        color: const Color(0xffEAEAEA).withOpacity(0.80)),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15.0),
+              TextFormField(
+                controller: _experiencecontroller3,
+                textCapitalization: TextCapitalization.sentences,
+                cursorColor: const Color(0xff666666).withOpacity(0.60),
+                style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xff666666).withOpacity(0.60)),
+                decoration: InputDecoration(
+                  isDense: true,
+                  hintText: 'Experience3',
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.normal,
@@ -240,25 +398,33 @@ class _PortfolioCreationPage2State extends State<PortfolioCreationPage2> {
                     ),
                   ),
                   onPressed: () {
-                    _firestore.collection('users').add(
-                      {
-                        'name': PortfolioCreationPage1.name,
-                        'phone': PortfolioCreationPage1.phoneNum,
-                        'jobname': PortfolioCreationPage1.jobName,
-                        'education': PortfolioCreationPage1.education,
-                        'experience': PortfolioCreationPage1.experience,
-                        'fieldofinterest':
-                            PortfolioCreationPage1.fieldofinterest,
-                        'skill': PortfolioCreationPage1.selectedchiplabel1,
-                        'projectlink': PortfolioCreationPage1.projectlink,
-                        'linkedin': PortfolioCreationPage1.linkedinlink,
-                      },
-                    ).then((DocumentReference doc) {
-                      setState(() {
-                        documentID = doc.id;
-                      });
-                      print(doc.id);
-                    });
+                    PortfolioCreationPage1.experience
+                      ..add(_experiencecontroller1.text)
+                      ..add(_experiencecontroller2.text)
+                      ..add(_experiencecontroller3.text);
+                    PortfolioCreationPage1.education
+                      ..add(_educationcontroller1.text)
+                      ..add(_educationcontroller2.text)
+                      ..add(_educationcontroller3.text);
+                    final currentUser = FirebaseAuth.instance.currentUser;
+                    if (currentUser != null) {
+                      final userID = currentUser.uid;
+                      _firestore.collection('users').doc(userID).set(
+                        {
+                          'name': PortfolioCreationPage1.name,
+                          'phone': PortfolioCreationPage1.phoneNum,
+                          'jobname': PortfolioCreationPage1.jobName,
+                          'education': PortfolioCreationPage1.education,
+                          'experience': PortfolioCreationPage1.experience,
+                          'fieldofinterest':
+                              PortfolioCreationPage1.fieldofinterest,
+                          'skill': PortfolioCreationPage1.selectedchiplabel1,
+                          'projectlink': PortfolioCreationPage1.projectlink,
+                          'linkedin': PortfolioCreationPage1.linkedinlink,
+                          'projects': PortfolioCreationPage1.selectedchiplabel1,
+                        },
+                      );
+                    }
 
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const HomePage()));

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioapp/features/authentication/presentation/welcome_screen.dart';
 import 'package:portfolioapp/features/profile/data/profile_repository.dart';
 import 'package:portfolioapp/features/profile/presentation/portfolio_creation_page2.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,9 +25,11 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<Map<String, dynamic>?> getProfileData() async {
-    final profileRepo = ProfileRepository();
-
-    return profileRepo.getProfile('0YgzTJ3BPG550L4iQveR');
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      final profileRepo = ProfileRepository();
+      return profileRepo.getProfile(currentUser.uid);
+    }
   }
 
   @override
@@ -54,16 +57,35 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24, right: 24),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Icon(Icons.arrow_back)),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24, right: 24),
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(Icons.arrow_back)),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: IconButton(
+                                onPressed: () {
+                                  FirebaseAuth.instance.signOut();
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const WelcomScreen(),
+                                  ));
+                                },
+                                icon: const Icon(Icons.logout)),
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
@@ -114,34 +136,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ),
                                     label: Text(
                                       'LinkedIn',
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                          color: const Color(0xff4C67ED)),
-                                    ),
-                                  ),
-                                  TextButton.icon(
-                                    style: ButtonStyle(
-                                      padding: MaterialStateProperty.all<
-                                          EdgeInsetsGeometry>(
-                                        EdgeInsets.zero,
-                                      ),
-                                    ),
-                                    onPressed: () async {
-                                      final url =
-                                          Uri.parse(profileData['github']);
-                                      if (await canLaunchUrl(url)) {
-                                        await launchUrl(url);
-                                        print('clicked');
-                                      }
-                                    },
-                                    icon: const Icon(
-                                      Icons.add,
-                                      color: Color(0xff4C67ED),
-                                      size: 12,
-                                    ),
-                                    label: Text(
-                                      'Github',
                                       style: GoogleFonts.poppins(
                                           fontSize: 10,
                                           fontWeight: FontWeight.normal,

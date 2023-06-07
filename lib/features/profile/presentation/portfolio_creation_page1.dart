@@ -8,12 +8,12 @@ class PortfolioCreationPage1 extends StatefulWidget {
   static String name = '';
   static String phoneNum = '';
   static String jobName = '';
-  static String education = '';
-  static String experience = '';
   static String fieldofinterest = '';
   static String projectlink = '';
   static String linkedinlink = '';
 
+  static List<String> education = [];
+  static List<String> experience = [];
   static List<String> selectedchiplabel1 = [];
 
   const PortfolioCreationPage1({super.key});
@@ -97,7 +97,6 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                         color: const Color(0xff666666).withOpacity(0.60)),
                     filled: true,
                     fillColor: const Color(0xffC5C5C5).withOpacity(0.10),
-                    // errorText: showError ? 'Please enter your name' : null,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: 1.5,
@@ -111,7 +110,6 @@ class _PortfolioCreationPage1State extends State<PortfolioCreationPage1> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                  // validator: validateName,
                 ),
                 const SizedBox(height: 15.0),
                 TextFormField(

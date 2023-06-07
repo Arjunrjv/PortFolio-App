@@ -142,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         email: userEmail,
                         password: userPassword,
                       );
+                      final loginID = _auth.currentUser!.uid;
 
                       Navigator.of(context).push(
                         MaterialPageRoute(

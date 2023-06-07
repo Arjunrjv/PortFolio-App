@@ -35,11 +35,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   onChanged: (value) {
                     userEmail = value;
                   },
-                  cursorColor: const Color(0xff666666).withOpacity(0.60),
+                  cursorColor: const Color(0xff000000).withOpacity(0.60),
                   style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
-                      color: const Color(0xff666666).withOpacity(0.60)),
+                      color: const Color(0xff000000).withOpacity(0.60)),
                   decoration: InputDecoration(
                     isDense: true,
                     hintText: 'E-mail',
@@ -71,11 +71,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   onChanged: (value) {
                     userPassword = value;
                   },
-                  cursorColor: const Color(0xff666666).withOpacity(0.60),
+                  cursorColor: const Color(0xff000000).withOpacity(0.60),
                   style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
-                      color: const Color(0xff666666).withOpacity(0.60)),
+                      color: const Color(0xff000000).withOpacity(0.60)),
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
                       onPressed: () {

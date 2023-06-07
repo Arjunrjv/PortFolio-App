@@ -326,7 +326,7 @@ class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
                           ),
                         ),
                         Text(
-                          'Software Engineer',
+                          'Job Title',
                           style: GoogleFonts.poppins(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
@@ -336,7 +336,7 @@ class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
                         Padding(
                           padding: const EdgeInsets.only(top: 8, bottom: 41),
                           child: Text(
-                            'Marketfeed',
+                            'Company Name',
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
@@ -344,20 +344,26 @@ class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
                             ),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 5),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Resume added from your profile   '),
-                              Icon(
+                              Text(
+                                'Resume added from your profile   ',
+                                style: GoogleFonts.poppins(fontSize: 15),
+                              ),
+                              const Icon(
                                 Icons.check_circle,
                                 color: Color(0xff3BAE31),
                               )
                             ],
                           ),
                         ),
-                        const Text('or'),
+                        Text(
+                          'or',
+                          style: GoogleFonts.poppins(fontSize: 14),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, bottom: 40),
                           child: DottedBorder(
