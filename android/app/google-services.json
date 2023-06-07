@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "40895238934",
+    "project_id": "portfolio-app-c4635",
+    "storage_bucket": "portfolio-app-c4635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40895238934:android:263a5c772cf603327df637",
+        "android_client_info": {
+          "package_name": "com.example.portfolioapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40895238934-kkhqe77gsu09adlskaqe543r7t7h61hb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwdvWAj6-1jY-lbmYbkohW4DResxBECd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40895238934-kkhqe77gsu09adlskaqe543r7t7h61hb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

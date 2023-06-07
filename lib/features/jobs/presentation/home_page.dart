@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'Hello 👋',
                         style: GoogleFonts.poppins(
-                          fontSize: 22,
+                          fontSize: 30,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 'Trending jobs',
                 style: GoogleFonts.poppins(
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: FontWeight.w400,
                 ),
               ),

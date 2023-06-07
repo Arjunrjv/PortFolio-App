@@ -83,7 +83,7 @@ class _JobsForYouContainerWidgetState extends State<JobsForYouContainerWidget> {
               Text(
                 'For you',
                 style: GoogleFonts.poppins(
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: FontWeight.w400,
                 ),
               ),

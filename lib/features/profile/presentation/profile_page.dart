@@ -158,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     Text(
-                      'Self taught Software Engineer Self taught Software Engineer Self taught Software Engineer ',
+                      'Self taught Software Engineer',
                       style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w300,

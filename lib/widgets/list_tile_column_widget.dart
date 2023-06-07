@@ -70,11 +70,11 @@ class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
             dense: true,
             visualDensity: const VisualDensity(vertical: -3),
             leading: Transform.translate(
-              offset: Offset(-5, 0),
+              offset: const Offset(-5, 0),
               child: CircleAvatar(
                 radius: 20,
-                child: Image.network(imageID[index]),
                 backgroundColor: Colors.white,
+                child: Image.network(imageID[index]),
               ),
             ),
             title: Transform.translate(
@@ -82,7 +82,7 @@ class _TrendingJobsListTileState extends State<TrendingJobsListTile> {
               child: Text(
                 yourJobNames[index],
                 style: GoogleFonts.poppins(
-                  fontSize: 12,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
               ),

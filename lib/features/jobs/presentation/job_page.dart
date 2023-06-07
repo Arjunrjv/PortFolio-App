@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolioapp/features/jobs/data/job_repository.dart';
@@ -17,6 +18,10 @@ class ShowAboutTheJob extends StatefulWidget {
 }
 
 class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
+  bool isFileUploaded = false;
+
+  FilePickerResult? result;
+
   final jobType = [
     'Internship',
     'Internship',
@@ -41,27 +46,29 @@ class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: FutureBuilder<Map<String, dynamic>?>(
-        future: jobDataFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            // While waiting for data, show a loading indicator
-            return const Center(child: SizedBox());
-          } else if (snapshot.hasError) {
-            // If an error occurred while fetching data, display an error message
-            return const Center(child: Text('Error loading job data'));
-          } else {
-            final jobData = snapshot.data;
+    return FutureBuilder<Map<String, dynamic>?>(
+      future: jobDataFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          // While waiting for data, show a loading indicator
+          return Center(
+              child: Container(
+            color: Colors.white,
+          ));
+        } else if (snapshot.hasError) {
+          // If an error occurred while fetching data, display an error message
+          return const Center(child: Text('Error loading job data'));
+        } else {
+          final jobData = snapshot.data;
 
-            if (jobData == null) {
-              // If no job data is available, display a message
-              return const Center(child: Text('No job data available'));
-            }
+          if (jobData == null) {
+            // If no job data is available, display a message
+            return const Center(child: Text('No job data available'));
+          }
 
-            // Build the UI using the jobData
-            return ListView(
+          // Build the UI using the jobData
+          return Scaffold(
+            body: ListView(
               padding: const EdgeInsets.only(bottom: 50, top: 50),
               children: [
                 Padding(
@@ -272,186 +279,225 @@ class _ShowAboutTheJobState extends State<ShowAboutTheJob> {
                   ),
                 ),
               ],
-            );
-          }
-        },
-      ),
-      floatingActionButton: SizedBox(
-        width: 250,
-        child: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(35),
-                  topRight: Radius.circular(35),
-                ),
-              ),
-              context: context,
-              builder: (context) {
-                return SingleChildScrollView(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 40),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 37, bottom: 25),
-                          child: SizedBox(
-                            width: 100,
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  left: 30,
-                                  child: CircleAvatar(
-                                    backgroundColor: Color(0xff3BAE31),
-                                    radius: 30,
-                                    child: FlutterLogo(
-                                      size: 30,
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  child: CircleAvatar(
-                                    backgroundColor: Color(0xff333333),
-                                    radius: 30,
-                                    child: FlutterLogo(
-                                      size: 30,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+            ),
+            floatingActionButton: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: SizedBox(
+                width: 250,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(35),
+                          topRight: Radius.circular(35),
                         ),
-                        Text(
-                          'Job Title',
-                          style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xff333333),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 41),
-                          child: Text(
-                            'Company Name',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xffBDBDBD),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Resume added from your profile   ',
-                                style: GoogleFonts.poppins(fontSize: 15),
-                              ),
-                              const Icon(
-                                Icons.check_circle,
-                                color: Color(0xff3BAE31),
-                              )
-                            ],
-                          ),
-                        ),
-                        Text(
-                          'or',
-                          style: GoogleFonts.poppins(fontSize: 14),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5, bottom: 40),
-                          child: DottedBorder(
-                            color: const Color(0xffEAEAEA),
-                            strokeWidth: 1.5,
-                            dashPattern: const [12, 12],
-                            radius: const Radius.circular(10),
-                            borderType: BorderType.RRect,
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: double.infinity,
-                              height: 65,
-                              decoration: BoxDecoration(
-                                color:
-                                    const Color(0xffEAEAEA).withOpacity(0.80),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(10)),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                      ),
+                      context: context,
+                      builder: (context) {
+                        return StatefulBuilder(builder: (BuildContext context,
+                            StateSetter setBottomSheetState) {
+                          return SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, bottom: 40),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(bottom: 5),
-                                    child: Icon(
-                                      Icons.upload_file_rounded,
-                                      color: Color(0xff666666),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 37, bottom: 25),
+                                    child: SizedBox(
+                                      width: 100,
+                                      child: Stack(
+                                        children: [
+                                          const Positioned(
+                                            left: 30,
+                                            child: CircleAvatar(
+                                              radius: 30,
+                                              foregroundImage: AssetImage(
+                                                  'assets/images/Avatar.png'),
+                                              backgroundColor:
+                                                  Color(0xffFFFFFF),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            child: CircleAvatar(
+                                                backgroundColor:
+                                                    const Color(0xff333333),
+                                                radius: 30,
+                                                child: Image.network(
+                                                    jobData['image'])),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Text(
-                                    'Upload New Resume',
+                                    jobData['title'],
                                     style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15.0,
-                                      color: const Color(0xff666666)
-                                          .withOpacity(0.60),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: const Color(0xff333333),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 8, bottom: 41),
+                                    child: Text(
+                                      jobData['company'],
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xffBDBDBD),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 5),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Resume added from your profile   ',
+                                          style:
+                                              GoogleFonts.poppins(fontSize: 15),
+                                        ),
+                                        !isFileUploaded
+                                            ? const Icon(
+                                                Icons.check_circle,
+                                                color: Color(0xff3BAE31),
+                                              )
+                                            : const SizedBox.shrink()
+                                      ],
+                                    ),
+                                  ),
+                                  Text(
+                                    'or',
+                                    style: GoogleFonts.poppins(fontSize: 14),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 5, bottom: 40),
+                                    child: DottedBorder(
+                                      color: const Color(0xffEAEAEA),
+                                      strokeWidth: 1.5,
+                                      dashPattern: const [12, 12],
+                                      radius: const Radius.circular(10),
+                                      borderType: BorderType.RRect,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          result = await FilePicker.platform
+                                              .pickFiles(allowMultiple: true);
+                                          if (result == null) {
+                                            print("No file selected");
+                                          } else {
+                                            setBottomSheetState(() {
+                                              isFileUploaded = true;
+                                              print(isFileUploaded);
+                                            });
+                                            result?.files.forEach((element) {
+                                              print(element.name);
+                                            });
+                                          }
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          width: double.infinity,
+                                          height: 65,
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xffEAEAEA)
+                                                .withOpacity(0.80),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(10)),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const Padding(
+                                                padding:
+                                                    EdgeInsets.only(bottom: 5),
+                                                child: Icon(
+                                                  Icons.upload_file_rounded,
+                                                  color: Color(0xff666666),
+                                                ),
+                                              ),
+                                              Text(
+                                                !isFileUploaded
+                                                    ? 'Upload New Resume'
+                                                    : 'File uploaded',
+                                                style: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 15.0,
+                                                  color: const Color(0xff666666)
+                                                      .withOpacity(0.60),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 10, top: 10),
+                                    child: SizedBox(
+                                      width: double.infinity,
+                                      height: 50.0,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              const Color(0xff4C67ED),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const AppliedSuccessPage()));
+                                        },
+                                        child: Text(
+                                          'Apply Now',
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 15.0),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10, top: 10),
-                          child: SizedBox(
-                            width: double.infinity,
-                            height: 50.0,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xff4C67ED),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AppliedSuccessPage()));
-                              },
-                              child: Text(
-                                'Apply Now',
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15.0),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                          );
+                        });
+                      },
+                    );
+                  },
+                  backgroundColor: const Color(0xff4C67ED),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                );
-              },
-            );
-          },
-          backgroundColor: const Color(0xff4C67ED),
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Text(
-            'One Click Apply',
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600, fontSize: 19.0),
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+                  child: Text(
+                    'One Click Apply',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600, fontSize: 19.0),
+                  ),
+                ),
+              ),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+          );
+        }
+      },
     );
   }
 }
